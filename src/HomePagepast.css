@@ -1,0 +1,78 @@
+/* 전체 컨테이너 스타일 */
+.homepage-container {
+    display: flex;
+    height: 100vh; /* 화면 높이 채우기 */
+    padding: 20px;
+}
+
+/* 왼쪽 섹션 (프로필) */
+.profile-section {
+    flex: 0.5; /* 동일한 비율로 공간 차지 */
+    padding: 20px;
+    background-color: #f9f9f9; /* 연한 배경색 */
+}
+
+/* 프로필과 날씨 간의 구분선 */
+.profile-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc; /* 구분선 색상 */
+    margin: 10px 0; /* 위아래 여백 */
+}
+
+/* 날씨 정보 구역 */
+.weather-info {
+    width: 276px; /* 너비 */
+    height: 200px; /* 높이 */
+    background-color: #f1f1f1; /* 연한 배경색 */
+    border-radius: 15px; /* 둥근 모서리 */
+    padding: 20px; /* 내부 여백 */
+    margin-top: 20px; /* 위쪽 여백 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.weather-info p {
+    font-size: 14px;
+    color: #9BCA84; /* 글자 색상 */
+}
+
+/* 프로필과 날씨 간의 구분선 */
+.weather-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc; /* 구분선 색상 */
+    margin: 20px 0 0 0; /* 위 오른쪽 아래 왼쪽 여백 */
+}
+
+/* 게시판 스타일 */
+.board-section {
+    margin-top: 20px;
+}
+
+.board-list {
+    list-style-type: none; /* 기본 리스트 스타일 제거 */
+    padding: 0;
+}
+
+.board-list li {
+    background-color: #e9ecef; /* 항목 배경 색상 */
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+
+
+/* 구분선 */
+.divider {
+    width: 1px;
+    background-color: #ccc; /* 구분선 색상 */
+    margin: 0 10px; /* 구분선 양옆 여백 */
+}
+
+/* 오른쪽 섹션 (캘린더) */
+.calendar-section {
+    flex: 2; /* 캘린더가 더 넓게 표시되도록 */
+    padding: 20px;
+    background-color: #fff; /* 기본 배경색 */
+}

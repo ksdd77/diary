@@ -1,0 +1,321 @@
+/* 페이지 전체 컨테이너 */
+.homepage-container {
+    /*------------위치 ------------------*/
+    display: flex;
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    gap: 20px;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    /*----------------------------------*/
+    background-color: #ffffff; /* 배경색 */
+}
+
+/* 왼쪽 프로필 섹션 */
+.profile-section {
+    /*------------위치 ------------------*/
+    flex: 0 0 15%; /* 기본 너비를 15%로 설정 */
+    height: 102%; /* 세로는 부모 높이에 맞춤 */
+    /*----------------------------------*/
+
+    border: 5px solid #9BCA84;
+    padding: 1px;
+    border-radius: 10px;
+    line-height: normal;  /* 텍스트 줄 간격 설정 */
+    z-index: 20;  /* 다른 요소들보다 우선적으로 표시 */
+    filter: none; /* 프로필 섹션은 흐림 효과를 적용하지 않음 */
+}
+
+/* 프로필 */
+.profile {
+    /*------------위치 ------------------*/
+    margin: 10px;
+    /*----------------------------------*/
+    background-color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow:
+            1px 1px 0px #9BCA84,   /* 오른쪽 아래 */
+            -1px -1px 0px #9BCA84,  /* 왼쪽 위 */
+            1px -1px 0px #9BCA84,   /* 오른쪽 위 */
+            -1px 1px 0px #9BCA84,   /* 왼쪽 아래 */
+            0px 1px 0px #9BCA84,    /* 아래쪽 */
+            0px -1px 0px #9BCA84,   /* 위쪽 */
+            1px 0px 0px #9BCA84,    /* 오른쪽 */
+            -1px 0px 0px #9BCA84;   /* 왼쪽 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 5px solid #9BCA84;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* 미니 캘린더 */
+.mini_calendar {
+    cursor: pointer;
+    /* ----------위치-----------------*/
+    flex: 1; /* 나머지 공간을 차지 */
+    width: 250px;
+    height: 40px;  /* 높이를 더 크게 해서 클릭하기 쉽게 */
+    margin: 10px;
+    /*----------스타일----------------*/
+    border-radius: 10px;
+    border: 5px solid #9BCA84;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #ffffff;  /* 배경색을 흰색으로 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    transition: all 0.3s ease;  /* 호버 시 부드러운 변환 효과 */
+}
+
+.mini_calendar:hover {
+    background-color: #e9f5e0;  /* 호버 시 배경색을 약간 밝게 */
+    border-color: #7ba56f;  /* 호버 시 테두리 색 변경 */
+}
+
+.mini_calendar span {
+    color: #9BCA84;
+    padding: 0 10px;
+}
+
+/*!* 캘린더 드롭다운 *!*/
+.calendar-dropdown {
+    position: absolute;
+    top: 50px;  /*미니 캘린더 바로 아래에 위치*/
+    left: 0;
+    z-index: 10;
+    width:auto;
+    background-color: white;
+    border-radius: 10px;
+    border: 3px solid #9BCA84; /*테두리 색깔 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* 드롭다운 그림자 */
+    animation: fadeIn 0.3s ease-out;  /* 드롭다운 애니메이션 */
+    padding: 10px;
+}
+
+.calendar-dropdown .react-calendar {
+    border: none;
+    box-shadow: none;
+}
+
+/* 드롭다운 애니메이션 */
+@keyframes fadeIn { /*fadeIn 숨어있다 나타나기*/
+    0% { /*처음에 어느 위치에서 시작해서*/
+        opacity: 0;
+        transform: translateY(-20px);  /* 위에서 내려오는 애니메이션  */
+    }
+    100% { /*끝날때 어디 위치로 이동하는지 */
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.react-calendar {
+    width: 350px;
+    font-size: 1em;
+    border-radius: 10px; /* 모든 모서리를 10px로 둥글게 */
+    border: 1px solid transparent; /* 테두리도 투명하게 설정 */
+}
+.react-calendar__tile {
+    width: 27px; /* 각 타일의 크기 조정 */
+    height: 25px; /* 각 타일의 높이 조정 */
+}
+.react-calendar__tile abbr {
+    /*display:none 나중에 수정 "일" 없애기*/
+}
+.react-calendar__navigation {
+    height:15px;
+}
+.react-calendar__navigation__label {
+    font-size: 1em;
+}
+
+
+/* 날씨 정보 */
+.weather-info {
+    /*------------위치 ------------------*/
+    flex: 1; /* 나머지 공간을 차지 */
+    height: 20%;
+    margin: 10px;
+    border: 5px solid #9BCA84;
+    padding: 20px;
+    border-radius: 10px;
+    /*--------------------------------*/
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.weather-info p {
+    font-size: 14px;
+    color: #9BCA84;
+}
+
+/* 게시판 세션 */
+.board-section {
+    /*------------위치 ------------------*/
+    flex: 1; /* 남은 공간 차지 */
+    height: 20%;
+    padding: 10px;
+    margin: 10px;
+    /*--------------------------------*/
+    background-color: #ffffff;
+    border: 5px solid #9BCA84;
+    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* 세로 스크롤 */
+    scrollbar-width: thin; /* 스크롤바를 얇게 */
+    scrollbar-color: #9BCA84 #ffffff; /* 스크롤바 색상 */
+}
+
+.board-section h3 {
+    color: #9BCA84;
+    margin-bottom: 10px;
+}
+
+/* 게시판 목록 */
+.board-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.board-list li {
+    background-color: #9BCA84;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    height: calc(50% - 20px);
+}
+
+.board-list li:hover {
+    background-color: #78a965;
+}
+
+/* 캘린더 섹션 */
+.calendar-section {
+
+    /*------------위치 ------------------*/
+    flex: 3; /* 캘린더는 더 넓게 설정 */
+    height: calc(100% - 30px); /* 전체 높이 */
+    /*--------------------------------*/
+    background-color: #ffffff;
+    border: 5px solid #9BCA84;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: #9BCA84;
+    /*overflow-y: auto; !* 내용이 많으면 스크롤 추가 *!*/
+    z-index: 10;  /* 다른 요소들보다 뒤에 표시 */
+    transition: all 0.3s ease; /* 크기 변화에 부드러운 전환 효과 */
+}
+
+/*------------모바일--------------------------*/
+
+/* 모바일 화면에서 profile-section 숨기기 */
+
+@media (max-width: 768px) {
+    .profile-section {
+        position: absolute; /* 화면에 고정 */
+        top: 6%;
+        left: -40%; /* 왼쪽에서 보이지 않게 설정 */
+        height: 100vh; /* 화면 전체 높이 */
+        width: 250px; /* 프로필 섹션의 너비 */
+        border-radius: 0;
+        transition: transform 0.3s ease-in-out; /* 슬라이드 애니메이션 */
+        z-index: 20; /* 다른 요소들 위에 표시 */
+
+    }
+    .profile-section.show {
+        transform: translateX(110%); /* 화면 오른쪽으로 슬라이드 */
+    }
+
+/* 모바일 화면에서만 캘린더 영역 내리기 및 햄버거 메뉴 버튼 표시 */
+    /* 캘린더 영역을 내림 */
+    .calendar-section {
+        position: relative; /* 절대적인 위치를 설정할 준비 */
+    }
+
+    /* 햄버거 메뉴 버튼 스타일 */
+    .hamburger-menu {
+        position: absolute;
+        top: -25px; /* 캘린더 위로 위치시킴 */
+        left: 2.3%; /* 가운데 정렬 */
+        transform: translateX(-50%); /* 정확하게 가운데 정렬 */
+        width: 24px; /* 버튼 크기 */
+        height: 18px; /* 버튼 크기 */
+        cursor: pointer;
+        z-index: 10; /* 캘린더보다 위에 표시 */
+    }
+
+    /* 햄버거 버튼의 3개의 수평선 */
+    .hamburger-menu span {
+        display: block;
+        height: 3px; /* 수평선 두께 */
+        width: 100%;
+        background-color: #333;
+        margin: 3px 0; /* 간격 */
+        transition: 0.3s ease;
+    }
+
+    /* 모바일에서 햄버거 메뉴 표시 */
+    .hamburger-menu {
+        display: block; /* 모바일에서만 버튼 표시 */
+    }
+
+/* 모바일 화면에서 border-radius 제거 */
+    .calendar-section {
+        border-radius: 0; /* 모바일에서 border-radius 제거 */
+    }
+    .mini_calendar {
+        width: 220px;
+    }
+    .react-calendar{
+        width: 300px;
+    }
+    .react-calendar__navigation {
+        height:15px;
+    }
+    .react-calendar__navigation__label {
+        font-size: 1em;
+    }
+    /* profile-section.show 상태에서 profile-section만 보이게 하고 나머지 배경 흐리게 처리 */
+    .profile-section.show {
+        position: absolute;
+        z-index: 20; /* profile-section이 제일 위에 오도록 */
+    }
+
+    /* profile-section이 show 상태일 때 배경 흐리게 처리 */
+    .profile-section.show ~ .calendar-section {
+        filter: blur(5px); /* 배경을 흐리게 처리 */
+    }
+
+
+    /* profile-section이 show 되면 homepage-container의 흐림 효과 */
+    .calendar-section {
+        transition: filter 0.3s ease;
+    }
+
+}
+
+@media (max-width: 360px){
+    .profile-section {
+        position: absolute; /* 화면에 고정 */
+        top: 6%;
+        left: -80%; /* 왼쪽에서 보이지 않게 설정 */
+        height: 100vh; /* 화면 전체 높이 */
+        width: 250px; /* 프로필 섹션의 너비 */
+        border-radius: 0;
+        transition: transform 0.3s ease-in-out; /* 슬라이드 애니메이션 */
+        z-index: 20; /* 다른 요소들 위에 표시 */
+    }
+}

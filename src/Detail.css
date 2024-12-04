@@ -1,0 +1,46 @@
+/* 페이지 전체 컨테이너 */
+.homepage-container {
+    /*------------위치 ------------------*/
+    display: flex;
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    gap: 20px;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    /*----------------------------------*/
+    background-color: #ffffff; /* 배경색 */
+}
+
+/* 왼쪽 프로필 섹션 */
+.profile-section {
+    /*------------위치 ------------------*/
+    flex: 15%; /* 기본 너비를 15%로 설정 */
+    height: 102%; /* 세로는 부모 높이에 맞춤 */
+    /*----------------------------------*/
+
+    border: 5px solid #9BCA84;
+    padding: 1px;
+    border-radius: 10px;
+    line-height: normal;  /* 텍스트 줄 간격 설정 */
+    z-index: 20;  /* 다른 요소들보다 우선적으로 표시 */
+    filter: none; /* 프로필 섹션은 흐림 효과를 적용하지 않음 */
+}
+
+
+/* 캘린더 섹션 */
+.calendar-section {
+
+    /*------------위치 ------------------*/
+    flex: 3; /* 캘린더는 더 넓게 설정 */
+    height: calc(100% - 30px); /* 전체 높이 */
+    /*--------------------------------*/
+    background-color: #ffffff;
+    border: 5px solid #9BCA84;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    color: #9BCA84;
+    /*overflow-y: auto; !* 내용이 많으면 스크롤 추가 *!*/
+    z-index: 10;  /* 다른 요소들보다 뒤에 표시 */
+    transition: all 0.3s ease; /* 크기 변화에 부드러운 전환 효과 */
+}

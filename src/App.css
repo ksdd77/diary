@@ -1,0 +1,18 @@
+/* 전체적인 스타일 */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  overflow: scroll; /*향후 페이지별로 넣어주기*/
+}
+
+/* 페이지 제목 스타일 */
+.page-title { /* App.js에 <h1에 있는 제목 클래스 -> 페이지 컴포넌트 추가시 없어질 예정*/
+  text-align: center;
+  margin: 50px 0;
+  font-size: 24px;
+  color: #9BCA84;
+}
+
+

@@ -1,0 +1,89 @@
+/* 네비게이션 바 기본 스타일 */
+.navbar { /*작동 되는 CSS*/
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    /*background-color: #3e3e3c;*/
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*overflow: hidden;*/
+}
+
+/* 링크 스타일 */
+.nav-link { /* 작동되는 css */
+    position: relative;
+    text-decoration: none;
+    color: #9BCA84;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    z-index: 2; /* Hover 바가 아래에 표시되도록 */
+    transition: background-color 0.3s, color 0.3s; /*배경색과 글자색 변할 시 지연 시간 조정 */
+}
+
+/*.nav-link:hover {*/
+/*    color: #f39c12;*/
+/*}*/
+
+/* 메뉴 인디케이터 (클릭 시 고정되는 바) */
+.menu-indicator {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    background-color: #9BCA84; /* 클릭 시 고정되는 바의 색상 */
+    transition: all 0.3s ease; /* 부드러운 이동 애니메이션 */
+    z-index: 1;
+}
+
+/* Hover 바 애니메이션 */
+.hover-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px; /* 높이를 지정해줘야 보입니다 */
+    width: 100%; /* 전체 너비 */
+    background-color: rgba(155, 202, 132, 0.5); /* 반투명 hover 색상 */
+    transition: transform 0.3s ease; /* transform 애니메이션만 설정 */
+    transform: scaleY(0); /* 기본적으로 세로 크기 0 */
+    transform-origin: bottom; /* 아래에서부터 확장 */
+    z-index: 0;
+}
+
+/* 호버 시 아래에서 위로 확장되는 효과 */
+.navbar:hover .hover-indicator {
+    transform: scaleY(1); /* 세로 크기를 1로 설정하여 완전히 확장 */
+}
+
+
+/* 커스텀 CSS 변수로 hover 효과 위치와 너비 설정 */
+.navbar:hover .hover-indicator {
+    left: var(--hover-left, 0px);
+    width: var(--hover-width, 0px);
+    transform: scaleX(1); /* Hover 시 바가 나타남 */
+}
+
+/* 반응형 디자인 - navibar nav-link 기준 */
+@media (max-width: 843px) {
+    .nav-link{
+        font-size: 10px;
+    }
+}
+@media (max-width: 675px) {
+    .nav-link{
+        font-size: 10px;
+        margin: 0 5px;
+        padding: 0px;
+    }
+}
+@media (max-width: 399px) {
+    .nav-link {
+        font-size: 8px;
+        margin: 0 5px;
+        padding: 0px;
+    }
+}
