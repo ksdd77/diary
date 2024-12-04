@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Calendar from "react-calendar"; // react-calendar 라이브러리 import
 import "react-calendar/dist/Calendar.css"; // 스타일링을 위한 CSS import
@@ -24,7 +24,13 @@ const Detail = () => {
     const handleCalendarClick = (e) => {
         e.stopPropagation(); // 클릭 이벤트가 캘린더 외부로 전파되지 않도록 방지
     };
-
+    const selectedDate = date.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 변환
+    const [posts] = useState([
+        { date: '2024-12-01', content: '게시글 1' },
+        { date: '2024-12-04', content: '게시글 2' },
+      ]);
+    const filteredPosts = posts.filter(post => post.date === date.toLocaleDateString());
+   
 
     return (
       <div className="homepage-container">
@@ -44,8 +50,28 @@ const Detail = () => {
                             </div>
                         )}
             </div>
-            <div className="board-section">
+            <div>
+                <Calendar onChange={handleDateChange} value={date} />
                 
+            </div>
+            <div className="board-section">
+                <h2>{date.toLocaleDateString()}의 게시글</h2>
+                <ul>
+                    {filteredPosts.length > 0 ? (
+                    filteredPosts.map((post, index) => <li key={index}>{post.content}</li>)
+                    ) : (
+                    <li>게시글이 없습니다.</li>
+                    
+                    )}
+                </ul>
+                <ul>
+                    {filteredPosts.length > 0 ? (
+                    filteredPosts.map((post, index) => <li key={index}>{post.content}</li>)
+                    ) : (
+                    <li>게시글이 없습니다.</li>
+                    
+                    )}
+                </ul>
             </div>    
 
 
