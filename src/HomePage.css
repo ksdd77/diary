@@ -161,8 +161,8 @@
 /* 게시판 세션 */
 .board-section {
     /*------------위치 ------------------*/
-    flex: 1; /* 남은 공간 차지 */
-    height: 20%;
+    /* flex: 1; 남은 공간 차지 */
+    height: 60%;
     padding: 10px;
     margin: 10px;
     /*--------------------------------*/
@@ -181,25 +181,7 @@
     margin-bottom: 10px;
 }
 
-/* 게시판 목록 */
-.board-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
-.board-list li {
-    background-color: #9BCA84;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 8px;
-    height: calc(50% - 20px);
-}
-
-.board-list li:hover {
-    background-color: #78a965;
-}
 
 /* 캘린더 섹션 */
 .calendar-section {
