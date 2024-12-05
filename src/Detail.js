@@ -26,37 +26,79 @@ const Detail = () => {
     };
     const selectedDate = date.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 변환
     const [posts] = useState([
-        { date: '2024-12-01', content: '게시글 1' },
-        { date: '2024-12-04', content: '게시글 2' },
+        { id: 1, title: "첫 번째 게시글", author: "홍길동", date: '2024-12-01', content: '게시글 1' },
+        { id: 2, title: "두 번째 게시글", author: "김철수", date: '2024-12-04', content: '게시글 2' },
+        { id: 3, title: "세 번째 게시글", author: "이영희", date: "2023-12-03" }
       ]);
     const filteredPosts = posts.filter(post => post.date === date.toLocaleDateString());
-   
+    // 햄버거 메뉴 클릭 시 프로필 섹션 보이기/숨기기
+    const handleHamburgerClick = () => {
+        setIsProfileVisible(!isProfileVisible);
+    };
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [datetime, setDatetime] = useState('');
+    const [content, setContent] = useState('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const postData = {
+            title,
+            author,
+            datetime,
+            content,
+        };
+        console.log('게시글 데이터:', postData);
+    };
+    const styles = {
+        header: {
+          border: "1px solid #ddd",
+          padding: "8px",
+          backgroundColor: "#f4f4f4",
+          textAlign: "left",
+        },
+        cell: {
+          border: "1px solid #ddd",
+          padding: "8px",
+        }
+    };
     return (
       <div className="homepage-container">
          <div className={`profile-section`}>
-             {/* 미니 캘린더: 캘린더를 클릭하면 캘린더 열고 닫기 */}
-             <div className="mini_calendar" onClick={handleToggleCalendar}>
-                        <span>{date.toLocaleDateString()}</span> {/* 현재 선택된 날짜 표시 */}
-                        {/* 달력 표시 */}
-                        {isOpen && (
-                            <div className="calendar-dropdown" onClick={handleCalendarClick}>
-                                <Calendar
-                                    onChange={handleDateChange}  // 날짜 변경 시 핸들러
-                                    value={date}  // 현재 선택된 날짜
-                                    calendarType="gregory" // 요일을 일요일부터 시작하도록 설정
-                                    formatDay={(locale, date) => moment(date).format("DD")} // "일" 빼기
-                                />
-                            </div>
-                        )}
-            </div>
+             
             <div>
-                <Calendar onChange={handleDateChange} value={date} />
+                <Calendar 
+                    onChange={handleDateChange} 
+                    value={date}
+                    calendarType="gregory" 
+                />
                 
             </div>
             <div className="board-section">
                 <h2>{date.toLocaleDateString()}의 게시글</h2>
-                <ul>
+                    <div style={{ margin: "20px" }}>
+                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                            <thead>
+                            <tr>
+                                <th style={styles.header}>번호</th>
+                                <th style={styles.header}>제목</th>
+                                <th style={styles.header}>작성자</th>
+                                <th style={styles.header}>작성일</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {posts.map((post, index) => (
+                                    <tr key={post.id}>
+                                    <td style={styles.cell}>{index + 1}</td>
+                                    <td style={styles.cell}>{post.title}</td>
+                                    <td style={styles.cell}>{post.author}</td>
+                                    <td style={styles.cell}>{post.date}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                {/* <ul>
                     {filteredPosts.length > 0 ? (
                     filteredPosts.map((post, index) => <li key={index}>{post.content}</li>)
                     ) : (
@@ -71,7 +113,7 @@ const Detail = () => {
                     <li>게시글이 없습니다.</li>
                     
                     )}
-                </ul>
+                </ul> */}
             </div>    
 
 
@@ -79,7 +121,43 @@ const Detail = () => {
          <div className="calendar-section">
             <h2>일기 작성 페이지</h2>
             <p>오늘 하루는 어땠나요?</p>
+            <label htmlFor="title">제목:</label>
+                <input
+                    type="text"
+                    id="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                />
+                <br></br>
+                <label htmlFor="author">작성자:</label>
+                <input
+                    type="text"
+                    id="author"
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
+                    required
+                />
+                <br></br>
+                <label htmlFor="datetime">작성일시:</label>
+                <input
+                    type="datetime-local"
+                    id="datetime"
+                    value={datetime}
+                    onChange={(e) => setDatetime(e.target.value)}
+                    required
+                />
+                <br></br>
+                 <label htmlFor="content">내용:</label>
+                <textarea
+                    id="content"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    rows="10"
+                    required
+                ></textarea>
 
+                <button type="submit">게시글 작성</button>
          </div>
         
         {/* <h1>상세 페이지</h1>
