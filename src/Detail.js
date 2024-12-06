@@ -95,8 +95,8 @@ const Detail = () => {
             <br></br>
             <div className="board-section">
                 <h2>{date.toLocaleDateString()}의 게시글</h2>
-                    <div style={{ margin: "20px"}}>
-                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                    <div style={{ margin: "9px",height:"100%"}}>
+                        <table style={{ width: "105%", borderCollapse: "collapse", fontSize:"13px"}}>
                             <thead>
                             <tr>
                                 <th style={styles.header}>번호</th>
@@ -167,7 +167,8 @@ const Detail = () => {
                     required
                 />
                 <br></br>
-                 <label htmlFor="content">내용:</label>
+                 <label htmlFor="content">내용</label>
+                <br></br> 
                 <textarea
                     id="content"
                     value={content}
@@ -177,6 +178,7 @@ const Detail = () => {
                 ></textarea>
 
                 <button type="submit">작성</button>
+              
          </div>
         
         {/* <h1>상세 페이지</h1>

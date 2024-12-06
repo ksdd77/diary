@@ -58,7 +58,7 @@
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 8px;
-    height: calc(100% - 20px);
+    height: calc(50% - 10px);
 }
 
 .board-list li:hover {
