@@ -18,16 +18,12 @@ const Detail = () => {
     //     e.stopPropagation(); // 이벤트가 부모 요소로 전파되지 않도록 방지
     //     setIsOpen(!isOpen); // 캘린더 열고 닫기
     // };
-     // 날짜가 변경되었을 때 호출되는 함수
-    //  const handleDateChange = (newDate) => {
-    //     setDate(newDate);  // 선택된 날짜를 업데이트
-    //     setIsOpen(false);   // 날짜가 변경되면 캘린더 닫기
-    // };
+   
     // 캘린더 내부 클릭 시 이벤트 전파 방지
     // const handleCalendarClick = (e) => {
     //     e.stopPropagation(); // 클릭 이벤트가 캘린더 외부로 전파되지 않도록 방지
     // };
-   var [selectedDate, setSelectedDate] = useState(new Date());
+   let [selectedDate] = useState(date);
    selectedDate = date.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 변환 
     const [posts, setPosts] = useState([
         { id: 1, title: "첫 번째 게시글", author: "홍길동", date: selectedDate},
@@ -36,18 +32,29 @@ const Detail = () => {
       ]);
     
     const filteredPosts = posts.filter(post => post.date === date.toLocaleDateString());
-    const handleDateChange = (newDate) => {
-        setSelectedDate(date);
-        setDate(newDate);
-        setIsOpen(false); 
-    // const formattedDate = date.toISOString().split("T")[0]; // YYYY-MM-DD 형식으로 변환
+      //날짜가 변경되었을 때 호출되는 함수
+      const handleDateChange = (newDate) => {
+        setDate(newDate);  // 선택된 날짜를 업데이트
+        //setIsOpen(false);   // 날짜가 변경되면 캘린더 닫기
         setPosts((prevPosts) =>
-            prevPosts.map((post) => ({
-            ...post,
-            date: selectedDate
-            }))
-        );
+                    prevPosts.map((post) => ({
+                    ...post,
+                    date: selectedDate
+                    }))
+                );
     };
+    // const handleDateChange = (newDate) => {
+    //     setSelectedDate(date);
+    //     setDate(newDate);
+    //     setIsOpen(false); 
+    // // const formattedDate = date.toISOString().split("T")[0]; // YYYY-MM-DD 형식으로 변환
+    //     setPosts((prevPosts) =>
+    //         prevPosts.map((post) => ({
+    //         ...post,
+    //         date: selectedDate
+    //         }))
+    //     );
+    // };
     
         // 햄버거 메뉴 클릭 시 프로필 섹션 보이기/숨기기
         const handleHamburgerClick = () => {
