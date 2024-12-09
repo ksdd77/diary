@@ -5,6 +5,7 @@ import "react-calendar/dist/Calendar.css"; // 스타일링을 위한 CSS import
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
+import axios from "axios";
 
 const Detail = () => {
     const { id } = useParams();

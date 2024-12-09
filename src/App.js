@@ -6,9 +6,15 @@ import './App.css';
 import Navbar from "./Navbar"; // Navbar 컴포넌트를 분리
 import Board from './Board'; // 게시판(일기 작성 페이지) 
 import Detail from './Detail'; // 일기 작성 상세페이지
+import { useState } from "react";
+
 
 function App() {
+
+    const [message] = useState("");
+
     return (
+        
         <Router>
              <switch>
             <Navbar />
@@ -27,6 +33,7 @@ function App() {
                 
             </Routes>
             </switch>
+            <div>{message}</div>;
         </Router>
     );
 }
