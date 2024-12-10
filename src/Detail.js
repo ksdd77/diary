@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Calendar from "react-calendar"; // react-calendar 라이브러리 import
 import "react-calendar/dist/Calendar.css"; // 스타일링을 위한 CSS import
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment from "moment";
-import axios from "axios";
+// import moment from "moment";
+// import axios from "axios";
 
 const Detail = () => {
     const { id } = useParams();
@@ -44,6 +44,7 @@ const Detail = () => {
                     }))
                 );
     };
+    
     // const handleDateChange = (newDate) => {
     //     setSelectedDate(date);
     //     setDate(newDate);
@@ -91,6 +92,7 @@ const Detail = () => {
 
     return (
       <div className="homepage-container">
+        {/* 캘린더(왼쪽) */}
          <div className={`profile-section`}>
             <div>
                 <Calendar 
@@ -101,6 +103,7 @@ const Detail = () => {
                 
             </div>
             <br></br>
+            {/* 캘린더 밑에 나타나는 게시글 목록(왼쪽) */}
             <div className="board-section">
                 <h2>{date.toLocaleDateString()}의 게시글</h2>
                     <div style={{ margin: "9px",height:"100%"}}>
@@ -145,6 +148,7 @@ const Detail = () => {
 
 
          </div>
+         {/* 일기 작성 상세페이지(오른쪽) */}
          <div className="calendar-section">
             <h2>일기 작성 페이지</h2>
             <p>오늘 하루는 어땠나요?</p>
